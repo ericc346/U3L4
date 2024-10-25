@@ -1,0 +1,127 @@
+//without Doubles
+
+public int withoutDoubles(int die1, int die2, boolean noDoubles) {
+  int sum = 0;
+  if(die1 != die2){
+     sum = die1 + die2;
+  }
+  else if(!(noDoubles))
+  {
+     sum = die1 * 2;
+  }
+  else{
+     sum = die1 * 2  + 1;
+  }
+  if (sum > 12){
+    sum = 7;
+  }
+  return sum;
+}
+
+
+
+//Share digits
+
+public boolean shareDigit(int a, int b) {
+  if (a/10 == b/10){
+    return true;
+  }
+  else if(a%10 == b%10){
+    return true;
+  }
+  else if(a%10 == b/10){
+    return true;
+  }
+  else if(a/10 == b%10){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+
+// without X x2 
+
+public String withoutX2(String str) {
+  if(str.indexOf("xx") == 0){
+    String p2 = str.substring(str.indexOf("xx") + 2 );
+    return p2;
+  }
+
+  else if(str.indexOf("x") == 0 || str.indexOf("x") == 1){
+    String p1 = str.substring(0, str.indexOf("x"));
+    String p2 = str.substring(str.indexOf("x") +1 );
+    return p1 + p2;
+  }
+  else{
+  return str;
+  }
+}
+
+
+// noTeamSum
+public int noTeenSum(int a, int b, int c) 
+{
+  a = fixTeen(a);
+  b = fixTeen(b);
+  c = fixTeen(c);
+  return a + b + c;
+}
+
+public int fixTeen(int n)
+{
+  if(13 <= n && n <= 19 && n != 15 && n != 16) {
+    return 0;
+  } else {
+    return n;
+  }
+}
+
+
+//blackjack
+
+public int blackjack(int a, int b)
+{
+  a = black(a);
+  b = black(b);
+  if(a == 21){
+    return a;
+  }
+  if(b == 21){
+    return b;
+  }
+  else if(b > a){
+    return b;
+  }
+  else{
+    return a;
+  }
+
+}
+
+public int black(int n)
+{
+  
+  if(n > 21)
+  {
+    return 0;
+  }
+  else{
+    return n;
+  }
+  
+}
+
+
+//make bricks
+
+public boolean makeBricks(int small, int big, int goal) {
+  
+  if(goal > (big*5+ small)){
+    return false;
+  }
+  else{
+    return goal%5 <= small;
+  }
+}
+
